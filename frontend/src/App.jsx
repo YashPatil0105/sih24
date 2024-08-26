@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
-import { About, Contact, Home, Estimation } from "./components/pages";
+import { CarbonNeutrality, CarbonCredits, Home, Estimation } from "./components/pages";
 
 function App() {
   return (
@@ -9,9 +9,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/carbonNeutrality" element={<CarbonNeutrality />} />
         <Route path="/estimation" element={<Estimation />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/carbonCredits" element={<CarbonCredits />} />
       </Routes>
     </div>
   );

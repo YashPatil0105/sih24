@@ -1,4 +1,4 @@
-export * from "./About";
-export * from "./Contact";
+export * from "./CarbonNeutrality";
+export * from "./CarbonCredits";
 export * from "./Home";
 export * from "./Estimation";
