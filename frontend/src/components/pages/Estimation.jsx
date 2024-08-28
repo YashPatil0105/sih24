@@ -123,7 +123,7 @@ export const Estimation = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen p-4">
-      <div className="container max-w-4xl w-full bg-slate-100 rounded-lg shadow-xl p-6">
+      <div className="container max-w-5xl w-full bg-slate-100 rounded-lg shadow-xl p-6">
         <h1 className="text-2xl font-bold mb-4">Emission Estimation Module</h1>
         <TabGroup>
           <TabList className="flex p-1 space-x-9 bg-blue-900/20 rounded-xl overflow-x-auto">

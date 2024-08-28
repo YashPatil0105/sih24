@@ -1,13 +1,6 @@
 // import React from "react";
 import React, { useState } from "react";
 
-// export const Home = () => {
-//   return <h1>Home</h1>;
-// };
-
-
-// import "tailwindcss/tailwind.css";
-
 export const AfforestationOffsets = () => {
   const [emissions, setEmissions] = useState("");
   const [treeType, setTreeType] = useState("Pine");
@@ -21,7 +14,7 @@ export const AfforestationOffsets = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-8 bg-gray-100 min-h-screen">
+    <div className="flex flex-col items-center p-8 bg-gray-100 w-full">
       <h1 className="text-2xl font-bold mb-6">Afforestation Offsets</h1>
 
       <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
