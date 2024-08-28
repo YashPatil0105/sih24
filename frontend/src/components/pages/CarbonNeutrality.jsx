@@ -3,6 +3,8 @@ import { Tab } from '@headlessui/react';
 import { Chart as ChartJS, registerables } from 'chart.js';
 import { Line } from "react-chartjs-2";
 ChartJS.register(...registerables);
+import AfforestationOffsets from '../AfforestationOffsets';
+
 // Chart.register(Tooltip, Legend, LineElement, CategoryScale, LinearScale);
 
 const pathwaysData = {
@@ -86,6 +88,8 @@ export const CarbonNeutrality = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
+      <AfforestationOffsets></AfforestationOffsets>
     </div>
+   
   );
 };
