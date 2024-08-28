@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
-import { CarbonNeutrality, CarbonCredits, Home, Estimation,CarbonNeutralitySimulator } from "./components/pages";
+import { CarbonNeutrality, CarbonCredits, Home, Estimation,CarbonNeutralitySimulator,LandingPage } from "./components/pages";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
         <Route path="/carbonNeutralitySimulator" element={<CarbonNeutralitySimulator />} />
         <Route path="/estimation" element={<Estimation />} />
         <Route path="/carbonCredits" element={<CarbonCredits />} />
+        <Route path="/landingPage" element={<LandingPage />} />
       </Routes>
     </div>
   );
