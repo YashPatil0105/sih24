@@ -23,6 +23,9 @@ export const Navbar = () => {
         <li>
           <NavLink to="/carbonNeutrality">CarbonNeutrality</NavLink>
         </li>
+        <li>
+          <NavLink to="/carbonNeutralitySimulator">Simulator</NavLink>
+        </li>
       
         <li>
           <NavLink to="/carbonCredits">CarbonCredits</NavLink>
