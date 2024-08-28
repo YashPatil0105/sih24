@@ -3,3 +3,4 @@ export * from "./CarbonCredits";
 export * from "./Home";
 export * from "./Estimation";
 export * from "./CarbonNeutralitySimulator";
+export * from "./AfforestationOffsets";
