@@ -18,6 +18,9 @@ export const Navbar = () => {
       </div>
       <ul className={menuOpen ? "open" : ""}>
         <li>
+          <NavLink to="/landingPage">LandingPage</NavLink>
+        </li>
+        <li>
           <NavLink to="/estimation">Estimation</NavLink>
         </li>
         <li>
