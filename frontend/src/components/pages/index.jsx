@@ -5,3 +5,4 @@ export * from "./Estimation";
 export * from "./CarbonNeutralitySimulator";
 export * from "./AfforestationOffsets";
 export * from "./LandingPage";
+// export * from "./Footer";

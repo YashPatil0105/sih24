@@ -1,5 +1,4 @@
-// import React from "react";
-import React, { useState,useEffect } from "react";
+import React, { useEffect } from "react";
 import "./map.css";
 
 export const Home = () => {
@@ -32,9 +31,10 @@ export const Home = () => {
   }, []);
 
   return (
-    <div className="map-container">
-      <div id="map" className="map"></div>
+    <div className="home-container">
+      <div className="map-container">
+        <div id="map" className="map"></div>
+      </div>
     </div>
-  )
+  );
 };
-
