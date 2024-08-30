@@ -1,0 +1,17 @@
+Category,Emission Factor (kg CO2)
+Bituminous,0.323
+Sub-bituminous,0.332
+Lignite,0.333
+Natural Gas,0.181
+Diesel,19.34
+Gasoline,18.73
+Propane,16.67
+Coal-fired Power Plants,1.02
+Natural Gas-fired Power Plants,0.45
+Renewables,0.0
+Passenger Vehicles Gasoline,8.89
+Passenger Vehicles Diesel,10.21
+Air Travel Short-haul,0.15
+Air Travel Long-haul,0.11
+Cement Production,0.93
+Steel Production,1.85
