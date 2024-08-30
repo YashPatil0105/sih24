@@ -312,10 +312,6 @@ export const Estimation = () => {
     wasteManagement: {
       wasteType: ['Overburden', 'Tailings', 'Waste Rock', 'Used Oil', 'Scrap Metal'],
       disposalMethod: ['Backfilling', 'Surface Impoundment', 'Recycling', 'Incineration', 'Landfill']
-    },
-    landUseChange: {
-      vegetationType: ['Forest', 'Grassland', 'Wetland', 'Shrubland', 'Agricultural Land'],
-      restorationPlan: ['Reforestation', 'Wetland Restoration', 'Native Species Planting', 'Soil Remediation', 'Passive Restoration']
     }
   };
 
@@ -368,8 +364,7 @@ export const Estimation = () => {
     { name: 'Power Consumption', id: 'powerConsumption' },
     { name: 'Water Pumping', id: 'waterPumping' },
     { name: 'Employee Transportation', id: 'employeeTransportation' },
-    { name: 'Waste Management', id: 'wasteManagement' },
-    { name: 'Land Use Change', id: 'landUseChange' }
+    { name: 'Waste Management', id: 'wasteManagement' }
   ];
 
   return (

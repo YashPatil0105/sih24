@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
-import { CarbonNeutrality, CarbonCredits, Home, Estimation,CarbonNeutralitySimulator,LandingPage } from "./components/pages";
+import { Footer } from "./components/Footer";
+import { CarbonNeutrality, CarbonCredits, Home, Estimation,CarbonNeutralitySimulator,LandingPage} from "./components/pages";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/carbonCredits" element={<CarbonCredits />} />
         <Route path="/landingPage" element={<LandingPage />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
