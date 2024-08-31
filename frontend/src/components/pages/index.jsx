@@ -1,8 +1,8 @@
 export * from "./CarbonNeutrality";
 export * from "./CarbonCredits";
-export * from "./Home";
+export * from "./Map";
 export * from "./Estimation";
 export * from "./CarbonNeutralitySimulator";
 export * from "./AfforestationOffsets";
-export * from "./LandingPage";
-// export * from "./Footer";
+export * from "./Home";
+
