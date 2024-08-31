@@ -191,7 +191,7 @@ export const Estimation = () => {
       <div className="container max-w-5xl w-full bg-white rounded-lg shadow-xl p-6">
         <h1 className="text-3xl font-bold mb-6 text-center text-blue-800">Carbon Emission Estimation for Mines</h1>
         <TabGroup>
-          <TabList className="flex p-1 space-x-1 bg-blue-900/20 rounded-xl overflow-x-auto">
+          <TabList className="font-accent  flex p-1 space-x-1 bg-blue-900/20 rounded-xl overflow-x-auto">
             {tabs.map((tab) => (
               <Tab
                 key={tab.id}

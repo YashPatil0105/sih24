@@ -29,7 +29,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand and mission */}
           <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-green-400">EcoTech</h2>
+            <h2 className="text-3xl font-bold text-green-400">GreenMines</h2>
             <p className="text-gray-300">Empowering a sustainable future through innovative carbon solutions.</p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-green-400 transition-colors duration-300">
@@ -66,7 +66,7 @@ export const Footer = () => {
             <h3 className="text-xl font-semibold mb-4 text-green-400">Contact Us</h3>
             <address className="not-italic text-gray-300 space-y-2">
               <p>123 Eco Street, Green City</p>
-              <p>contact@ecotech.com</p>
+              <p>contact@greenmines.com</p>
               <p>+1 (555) 123-4567</p>
             </address>
           </div>
@@ -95,7 +95,7 @@ export const Footer = () => {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center">
         <p className="text-gray-400 text-sm">
-  © {new Date().getFullYear()} EcoTech. All rights reserved.
+  © {new Date().getFullYear()} GreenMines. All rights reserved.
 </p>
 
           <button onClick={scrollToTop} className="mt-4 sm:mt-0 bg-green-500 hover:bg-green-600 text-white p-2 rounded-full transition-colors duration-300">
