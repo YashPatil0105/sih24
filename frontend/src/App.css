@@ -1,5 +1,11 @@
-.App {
+/* .App {
   background-color: #fefefe;
   height: 100vh;
   width: 100%;
+} */
+
+body{
+  background: linear-gradient(to bottom right, #bbdefb, #a5d6a7); /* From blue-100 to green-100 */
+  min-height: 100vh;
+  margin: 0;
 }

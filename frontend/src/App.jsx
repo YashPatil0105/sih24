@@ -7,17 +7,20 @@ import { CarbonNeutrality, CarbonCredits,  Estimation,CarbonNeutralitySimulator,
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-gradient-to-br from-blue-100 to-green-100">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/carbonNeutrality" element={<CarbonNeutrality />} />
-        <Route path="/carbonNeutralitySimulator" element={<CarbonNeutralitySimulator />} />
+        <Route
+          path="/carbonNeutralitySimulator"
+          element={<CarbonNeutralitySimulator />}
+        />
         <Route path="/estimation" element={<Estimation />} />
         <Route path="/carbonCredits" element={<CarbonCredits />} />
         {/* <Route path="/landingPage" element={<LandingPage />} /> */}
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -7,10 +7,13 @@ const mineSchema = new mongoose.Schema({
     location: {
         type: String,
     },
-    mineType: {
+    state: {
         type: String,
     },
-    size: {
+    production: {
+        type: Number,
+    },
+    capacity: {
         type: Number,
     },
     totalEmission: {
@@ -20,11 +23,11 @@ const mineSchema = new mongoose.Schema({
         type: Number,
     },
     energyId: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Energy",
     },
     activityId: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Activity",
     },
 });

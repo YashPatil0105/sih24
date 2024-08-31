@@ -1,13 +1,5 @@
 const Factors = require("../model/emissionFactors");
 
-const abc = async (req, res) => {
-    try {
-        res.status(200).json();
-    } catch (error) {
-        res.status(500).json(error);
-    }
-};
-
 const excavation = async (req, res) => {
     try {
         const { emissionFactorValue } = await Factors.findOne({
@@ -19,9 +11,9 @@ const excavation = async (req, res) => {
         const totalEmission =
             operatingHours * fuelConsumptionRate * emissionFactorValue;
 
-        res.status(200).json({ totalEmission });
+        return res.status(200).json({ totalEmission });
     } catch (error) {
-        res.status(500).json(error);
+        return res.status(500).json(error);
     }
 };
 
@@ -40,9 +32,9 @@ const transportation = async (req, res) => {
             fuelConsumptionRate *
             emissionFactorValue;
 
-        res.status(200).json({ totalEmission });
+        return res.status(200).json({ totalEmission });
     } catch (error) {
-        res.status(500).json(error);
+        return res.status(500).json(error);
     }
 };
 
@@ -53,16 +45,16 @@ const equipment = async (req, res) => {
 
             const totalEmission = operatingHours * fuelConsumptionRate * 2.68;
 
-            res.status(200).json({ totalEmission });
+            return res.status(200).json({ totalEmission });
         } else {
             const { powerConsumption } = req.body;
 
             const totalEmission = powerConsumption * 0.82;
 
-            res.status(200).json({ totalEmission });
+            return res.status(200).json({ totalEmission });
         }
     } catch (error) {
-        res.status(500).json(error);
+        return res.status(500).json(error);
     }
 };
 
@@ -76,9 +68,9 @@ const blasting = async (req, res) => {
 
         const totalEmission = amountOfExplosive * emissionFactorValue;
 
-        res.status(200).json({ totalEmission });
+        return res.status(200).json({ totalEmission });
     } catch (error) {
-        res.status(500).json(error);
+        return res.status(500).json(error);
     }
 };
 
@@ -88,9 +80,9 @@ const powerConsumption = async (req, res) => {
 
         const totalEmission = dailyPowerConsumption * 0.82;
 
-        res.status(200).json({ totalEmission });
+        return res.status(200).json({ totalEmission });
     } catch (error) {
-        res.status(500).json(error);
+        return res.status(500).json(error);
     }
 };
 
@@ -101,16 +93,16 @@ const water = async (req, res) => {
 
             const totalEmission = waterPumped * fuelConsumptionRate * 2.68;
 
-            res.status(200).json({ totalEmission });
+            return res.status(200).json({ totalEmission });
         } else {
             const { powerConsumption } = req.body;
 
             const totalEmission = powerConsumption * 0.82;
 
-            res.status(200).json({ totalEmission });
+            return res.status(200).json({ totalEmission });
         }
     } catch (error) {
-        res.status(500).json(error);
+        return res.status(500).json(error);
     }
 };
 
@@ -129,9 +121,33 @@ const employeeTransportation = async (req, res) => {
             fuelConsumptionRate *
             emissionFactorValue;
 
-        res.status(200).json({ totalEmission });
+        return res.status(200).json({ totalEmission });
     } catch (error) {
-        res.status(500).json(error);
+        return res.status(500).json(error);
+    }
+};
+
+const waste = async (req, res) => {
+    try {
+        const { disposalMethod, wasteType, amountGenerated } = req.body;
+        const { emissionFactorValue } = await Factors.findOne({
+            causeOfEmission: req.body.disposalMethod,
+        });
+        switch (disposalMethod) {
+            case "Backfilling":
+                const totalEmissionBackFilling =
+                    6 * amountGenerated * emissionFactorValue;
+                return res.status(200).json({ totalEmissionBackFilling });
+            case "Surface Impoundment":
+                const totalEmissionSI =
+                    15.161 * amountGenerated * emissionFactorValue;
+                return res.status(200).json({ totalEmissionSI });
+            default:
+                const totalEmission = amountGenerated * emissionFactorValue;
+                return res.status(200).json({ totalEmission });
+        }
+    } catch (error) {
+        return res.status(500).json(error);
     }
 };
 
@@ -143,4 +159,5 @@ module.exports = {
     powerConsumption,
     water,
     employeeTransportation,
+    waste,
 };
