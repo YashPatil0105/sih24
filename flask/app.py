@@ -43,7 +43,7 @@ RENEWABLE_DATA = parse_renewable_xls('renewable.xlsx')
 @app.route('/calculate', methods=['POST'])
 def calculate():
     data = request.json
-
+    print("received data: ",data)
     mine_type = data.get('mine_type')
     location = data.get('location')
     emission = data.get('emission')
@@ -60,7 +60,7 @@ def calculate():
         return jsonify({"error": "Invalid location. Must be a valid Indian state."}), 400
 
     try:
-        emission = float(emission)
+        emission = float(emission)  
         afforestation_part = float(afforestation_part)
         methane_part = float(methane_part)
         renewable_part = float(renewable_part)
