@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import "./index.css";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { CarbonNeutrality, CarbonCredits,  Estimation,CarbonNeutralitySimulator,Home} from "./components/pages";

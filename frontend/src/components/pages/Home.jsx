@@ -215,6 +215,21 @@ export const Home = () => {
         </div>
 
         <section className="mb-24">
+          <h2 className="text-3xl font-bold text-center mb-12">Coal Fields in India</h2>
+          <div className="max-w-2xl mx-auto">
+           <Map/>
+          </div>
+        </section>
+        {/* <section className="mb-24">
+          <h2 className="text-3xl font-bold text-center mb-12">Carbon Reduction Timeline</h2>
+          <div className="max-w-2xl mx-auto">
+            <TimelineEvent year="2025" event="Implement clean technologies, reducing emissions by 20%" />
+            <TimelineEvent year="2030" event="Achieve 50% carbon neutrality through combined strategies" />
+            <TimelineEvent year="2035" event="Expand afforestation efforts, offsetting 75% of remaining emissions" />
+            <TimelineEvent year="2040" event="Reach carbon neutrality goal" />
+          </div>
+        </section> */}
+        <section className="mb-24">
           <h2 className="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Testimonial
@@ -227,21 +242,6 @@ export const Home = () => {
               author="Jane Smith"
               company="GreenDig Mining Co."
             />
-          </div>
-        </section>
-        <section className="mb-24">
-          <h2 className="text-3xl font-bold text-center mb-12">Map</h2>
-          <div className="max-w-2xl mx-auto">
-           <Map/>
-          </div>
-        </section>
-        <section className="mb-24">
-          <h2 className="text-3xl font-bold text-center mb-12">Carbon Reduction Timeline</h2>
-          <div className="max-w-2xl mx-auto">
-            <TimelineEvent year="2025" event="Implement clean technologies, reducing emissions by 20%" />
-            <TimelineEvent year="2030" event="Achieve 50% carbon neutrality through combined strategies" />
-            <TimelineEvent year="2035" event="Expand afforestation efforts, offsetting 75% of remaining emissions" />
-            <TimelineEvent year="2040" event="Reach carbon neutrality goal" />
           </div>
         </section>
 

@@ -162,19 +162,82 @@ export const Estimation = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Simulated calculation (replace with actual calculation logic)
-    const totalEmissions = Object.values(formData).reduce((sum, category) => {
-      return sum + Object.values(category).reduce((catSum, value) => {
-        const numValue = parseFloat(value);
-        return catSum + (isNaN(numValue) ? 0 : numValue);
-      }, 0);
-    }, 0);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+    
+  //   const totalEmissions = Object.values(formData).reduce((sum, category) => {
+  //     return sum + Object.values(category).reduce((catSum, value) => {
+  //       const numValue = parseFloat(value);
+  //       return catSum + (isNaN(numValue) ? 0 : numValue);
+  //     }, 0);
+  //   }, 0);
 
-    setCalculatedEmissions(totalEmissions.toFixed(2));
+  //   setCalculatedEmissions(totalEmissions.toFixed(2));
+  // };
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     try {
+//         const response = await fetch('/api/your-route', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify(formData)
+//         });
+
+//         const result = await response.json();
+
+//         if (response.ok) {
+//             setCalculatedEmissions(result.totalEmission);
+//         } else {
+//             console.error('Error calculating emissions:', result);
+//         }
+//     } catch (error) {
+//         console.error('Network error:', error);
+//     }
+// };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const endpoints = {
+    excavation: '/api/estimation/excavation',
+    transportation: '/api/estimation/transportation',
+    equipmentUsage: '/api/estimation/equipment',
+    blastingOperations: '/api/estimation/blasting',
+    powerConsumption: '/api/estimation/power',
+    waterPumping: '/api/estimation/water',
+    employeeTransportation: '/api/estimation/employeeTransport',
+    wasteManagement: '/api/estimation/waste'
   };
- 
+
+  let totalEmissions = 0;
+
+  for (const [category, data] of Object.entries(formData)) {
+    try {
+      const response = await fetch(endpoints[category], {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        totalEmissions += result.totalEmission;
+      } else {
+        console.error(`Error calculating emissions for ${category}:`, result);
+      }
+    } catch (error) {
+      console.error(`Network error while calculating emissions for ${category}:`, error);
+    }
+  }
+
+  setCalculatedEmissions(totalEmissions.toFixed(2));
+};
+
   const tabs = [
     { name: 'Excavation', id: 'excavation' },
     { name: 'Transportation', id: 'transportation' },
