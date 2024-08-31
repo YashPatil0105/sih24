@@ -50,8 +50,10 @@ export const CarbonNeutrality = () => {
   }, [selectedPathway]);
 
   return (
-    <div className="flex flex-col items-center p-4 sm:p-6 lg:p-8 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-center">Carbon Neutrality Pathways</h1>
+    <div className="bg-gradient-to-br from-blue-100 to-green-100 flex flex-col items-center p-4 sm:p-6 lg:p-8 bg-gray-100 min-h-screen">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-center">
+        Carbon Neutrality Pathways
+      </h1>
       <Tab.Group>
         <Tab.List className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 bg-blue-200 p-2 rounded-lg mb-6">
           {paths.map((path) => (
@@ -60,8 +62,8 @@ export const CarbonNeutrality = () => {
               onClick={() => setSelectedPathway(path.id)}
               className={({ selected }) =>
                 selected
-                  ? 'bg-white text-blue-700 border border-blue-300 rounded-lg py-2 px-4 sm:px-5 lg:px-6 transition-colors duration-300'
-                  : 'text-blue-500 py-2 px-4 sm:px-5 lg:px-6 hover:bg-blue-100 rounded-lg transition-colors duration-300'
+                  ? "bg-white text-blue-700 border border-blue-300 rounded-lg py-2 px-4 sm:px-5 lg:px-6 transition-colors duration-300"
+                  : "text-blue-500 py-2 px-4 sm:px-5 lg:px-6 hover:bg-blue-100 rounded-lg transition-colors duration-300"
               }
             >
               {path.name}
@@ -72,8 +74,12 @@ export const CarbonNeutrality = () => {
           {paths.map((path) => (
             <Tab.Panel key={path.id}>
               <div className="space-y-4">
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">{path.name}</h2>
-                <p className="text-gray-700 text-sm sm:text-lg lg:text-xl">{pathwaysData[path.id].description}</p>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">
+                  {path.name}
+                </h2>
+                <p className="text-gray-700 text-sm sm:text-lg lg:text-xl">
+                  {pathwaysData[path.id].description}
+                </p>
                 <div className="mt-4">
                   <div className="relative h-64 sm:h-72 lg:h-96">
                     <Line
@@ -81,7 +87,7 @@ export const CarbonNeutrality = () => {
                       ref={chartRef}
                       options={{
                         responsive: true,
-                        maintainAspectRatio: false
+                        maintainAspectRatio: false,
                       }}
                     />
                   </div>

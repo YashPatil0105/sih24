@@ -14,7 +14,7 @@ export const AfforestationOffsets = () => {
   };
 
   return (
-    <div className="flex flex-col items-center p-8 bg-gray-100 w-full">
+    <div className="bg-gradient-to-br from-blue-100 to-green-100 flex flex-col items-center p-8 bg-gray-100 w-full">
       <h1 className="text-2xl font-bold mb-6">Afforestation Offsets</h1>
 
       <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">

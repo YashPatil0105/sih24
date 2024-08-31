@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/react';
 import { Info } from 'lucide-react';
@@ -187,9 +186,11 @@ export const Estimation = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center min-h-screen p-4 bg-gray-100">
+    <div className="bg-gradient-to-br from-blue-100 to-green-100 flex justify-center items-center min-h-screen p-4 bg-gray-100">
       <div className="container max-w-5xl w-full bg-white rounded-lg shadow-xl p-6">
-        <h1 className="text-3xl font-bold mb-6 text-center text-blue-800">Carbon Emission Estimation for Mines</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center text-blue-800">
+          Carbon Emission Estimation for Mines
+        </h1>
         <TabGroup>
           <TabList className="font-accent  flex p-1 space-x-1 bg-blue-900/20 rounded-xl overflow-x-auto">
             {tabs.map((tab) => (
@@ -197,11 +198,11 @@ export const Estimation = () => {
                 key={tab.id}
                 className={({ selected }) =>
                   classNames(
-                    'py-2.5 px-3 text-sm leading-5 font-medium text-blue-700 rounded-lg whitespace-nowrap',
-                    'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60',
+                    "py-2.5 px-3 text-sm leading-5 font-medium text-blue-700 rounded-lg whitespace-nowrap",
+                    "focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60",
                     selected
-                      ? 'bg-white shadow'
-                      : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
+                      ? "bg-white shadow"
+                      : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
                   )
                 }
               >
@@ -211,32 +212,51 @@ export const Estimation = () => {
           </TabList>
           <TabPanels className="mt-6">
             {tabs.map((tab) => (
-              <TabPanel key={tab.id} className="bg-white p-6 rounded-xl shadow-md space-y-4">
-                <h2 className="text-xl font-semibold mb-4 text-blue-700">{tab.name} Data</h2>
+              <TabPanel
+                key={tab.id}
+                className="bg-white p-6 rounded-xl shadow-md space-y-4"
+              >
+                <h2 className="text-xl font-semibold mb-4 text-blue-700">
+                  {tab.name} Data
+                </h2>
                 {Object.entries(formData[tab.id]).map(([field, value]) => (
                   <div key={field} className="space-y-2">
-                    <label htmlFor={`${tab.id}-${field}`} className="block text-sm font-medium text-gray-700">
-                      {field.replace(/([A-Z])/g, ' $1').trim()}
-                      <InfoTooltip text={`Enter the ${field.toLowerCase()} for ${tab.name.toLowerCase()}`} />
+                    <label
+                      htmlFor={`${tab.id}-${field}`}
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      {field.replace(/([A-Z])/g, " $1").trim()}
+                      <InfoTooltip
+                        text={`Enter the ${field.toLowerCase()} for ${tab.name.toLowerCase()}`}
+                      />
                     </label>
                     {options[tab.id] && options[tab.id][field] ? (
                       <select
                         id={`${tab.id}-${field}`}
                         value={value}
-                        onChange={(e) => handleInputChange(tab.id, field, e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange(tab.id, field, e.target.value)
+                        }
                         className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       >
                         <option value="">Select...</option>
-                        {options[tab.id][field].map(option => (
-                          <option key={option} value={option}>{option}</option>
+                        {options[tab.id][field].map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
                         ))}
                       </select>
                     ) : units[field] ? (
                       <InputWithUnit
                         type="number"
                         value={value}
-                        onChange={(e) => handleInputChange(tab.id, field, e.target.value)}
-                        placeholder={`Enter ${field.replace(/([A-Z])/g, ' $1').trim().toLowerCase()}...`}
+                        onChange={(e) =>
+                          handleInputChange(tab.id, field, e.target.value)
+                        }
+                        placeholder={`Enter ${field
+                          .replace(/([A-Z])/g, " $1")
+                          .trim()
+                          .toLowerCase()}...`}
                         unit={units[field]}
                       />
                     ) : (
@@ -244,8 +264,13 @@ export const Estimation = () => {
                         type="text"
                         id={`${tab.id}-${field}`}
                         value={value}
-                        onChange={(e) => handleInputChange(tab.id, field, e.target.value)}
-                        placeholder={`Enter ${field.replace(/([A-Z])/g, ' $1').trim().toLowerCase()}...`}
+                        onChange={(e) =>
+                          handleInputChange(tab.id, field, e.target.value)
+                        }
+                        placeholder={`Enter ${field
+                          .replace(/([A-Z])/g, " $1")
+                          .trim()
+                          .toLowerCase()}...`}
                         className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       />
                     )}
@@ -259,9 +284,13 @@ export const Estimation = () => {
           <Button onClick={handleSubmit}>Calculate Emissions</Button>
         </div>
         {calculatedEmissions && (
-          <Alert className="mt-6 bg-green-100 border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+          <Alert
+            className="mt-6 bg-green-100 border-green-400 text-green-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
             <AlertDescription>
-              Estimated total emissions: {calculatedEmissions} tons CO2 equivalent
+              Estimated total emissions: {calculatedEmissions} tons CO2
+              equivalent
             </AlertDescription>
           </Alert>
         )}
