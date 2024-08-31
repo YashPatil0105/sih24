@@ -1,0 +1,32 @@
+{
+    "Karnataka": {
+        "max_area": 15000
+    },
+    "Maharashtra": {
+        "max_area": 12000
+    },
+    "Tamil Nadu": {
+        "max_area": 8000
+    },
+    "Gujarat": {
+        "max_area": 10000
+    },
+    "Rajasthan": {
+        "max_area": 16000
+    },
+    "Punjab": {
+        "max_area": 7000
+    },
+    "West Bengal": {
+        "max_area": 11000
+    },
+    "Uttar Pradesh": {
+        "max_area": 13000
+    },
+    "Madhya Pradesh": {
+        "max_area": 14000
+    },
+    "Bihar": {
+        "max_area": 9000
+    }
+}
