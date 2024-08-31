@@ -1,0 +1,12 @@
+Mine_Type,Technology,Devices,Cost,Estimated_Emission_Reduction,Impact_On_Carbon_Neutrality,When_To_Use,scrubbers per device,1-3L
+Underground,Methane Drainage Systems,"Methane drainage pumps, Borehole drilling rigs, Methane collection headers",5000000,Up to 90%,Significant increase in carbon neutrality,High levels of methane that need safe removal,biofilters pd,8-16L
+Both,Methane Recovery Systems,"Gas extraction wells, Recovery compressors, Gas recovery units (GRUs)",5000000,Up to 90%,Substantial improvement in neutrality,Significant methane emissions where capture is beneficial,drainage pumps,30K
+Underground,Ventilation Systems,"Ventilation fans, Air ducts, Exhaust systems",5000000,,Helps prevent dangerous methane concentrations,Maintaining safe air quality in underground mines,recovery compressor ,8-18L
+Both,Gas-to-Energy Systems,"Gas turbines, Combined heat and power (CHP) units, Gas engines",1000000,Up to 50%,Reduces reliance on fossil fuels,When captured methane can be used as energy source,air ducts per ft,200-2000
+Both,Methane-Fueled Engines,"Methane combustion engines, Internal combustion engines (ICE), Gas engines",25000000,Up to 50%,Reduces emissions by using methane as fuel,Need to reduce emissions using captured methane,gas turbine,5-10L
+Underground,Methane Fuel Cells,"Proton exchange membrane (PEM) fuel cells, Solid oxide fuel cells (SOFC)",50000000,High efficiency,Significant reduction in greenhouse gases,High-efficiency conversion of methane to energy,methane combustion engine,2.5cr
+Both,Flare Systems,"Flare stacks, Ignition systems, Gas flares",5000000,Burns excess methane,Converts methane to less harmful CO₂,Emergency situations or where methane capture isn't feasible,,
+Underground,Methane Scrubbers,"Absorption towers, Carbon adsorption units, Chemical scrubbers",1000000,High efficiency,Removes methane from air or gas streams,Cleaning methane from air or gas streams,,
+Both,Biofilters,"Biofilter beds, Perforated pipes, Aeration blowers",5000000,High efficiency,Treats methane emissions effectively,Environmentally friendly methane emission treatment,,
+Both,Methane Compressors,"Reciprocating compressors, Rotary screw compressors, Centrifugal compressors",5000000,,Facilitates storage and transportation,Efficient storage or transportation of methane,,
+Both,Methane Storage Tanks,"Cryogenic storage tanks, Pressurized gas cylinders, Gas storage vessels",20000000,,Stores methane for later use,Storing captured methane for future use,,

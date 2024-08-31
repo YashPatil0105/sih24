@@ -9,6 +9,7 @@ const {
     powerConsumption,
     employeeTransportation,
     water,
+    waste,
 } = require("../controllers/estimationController");
 
 router.route("/excavation").post(excavation);
@@ -18,6 +19,6 @@ router.route("/blasting").post(blasting);
 router.route("/power").post(powerConsumption);
 router.route("/water").post(water);
 router.route("/employeeTransport").post(employeeTransportation);
-router.route("/waste").post();
+router.route("/waste").post(waste);
 
 module.exports = router;
