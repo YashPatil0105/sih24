@@ -8,13 +8,13 @@ const connectDB = require("../db/connect");
 
 const populateEmissionMines = async () => {
     try {
-        await connectDB(
+        connectDB(
             "mongodb+srv://purabrtamboli:purab@cluster0.mpzuz25.mongodb.net/SIH2024?retryWrites=true&w=majority&appName=Cluster0"
         );
 
         const results = [];
         fs.createReadStream(
-            "/home/purab/Desktop/sih24/backend/csv/Updated_Coal_mines.csv"
+            "/home/purab/Desktop/sih24/backend/csv/methane_final.csv"
         )
             .pipe(csv())
             .on("data", (data) => results.push(data))
@@ -22,11 +22,9 @@ const populateEmissionMines = async () => {
                 const mineDocuments = results.map((row) => ({
                     name: row["Project"],
                     location: row["Coal Field"],
-                    state: row["State"],
                     numberOfEmployees: parseFloat(row["Workforce"]) || 0,
                     production: parseFloat(row["Production (Mt)"]) || 0,
                     capacity: parseFloat(row["Capacity (Mt)"]) || 0,
-                    totalEmission: 0,
                 }));
 
                 await Mine.insertMany(mineDocuments);
