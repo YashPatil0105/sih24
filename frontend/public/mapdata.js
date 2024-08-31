@@ -187,13 +187,13 @@ var simplemaps_countrymap_mapdata={
     "0": {
       lat: "23.6367",
       lng: "87.0820",
-      name: "Raniganj Coal Mine",
+      name: "Raniganj Coal Field",
       description: "Coal production = 33.90 million tonnes"
     },
     "1": {
       lat: "23.7470",
       lng: "86.4145",
-      name: "Jharia Coal Mine",
+      name: "Jharia Coal Field",
       description: "Coal production = 36.40 million tonnes",
       type: "circle",
       opacity: "1"
@@ -201,167 +201,203 @@ var simplemaps_countrymap_mapdata={
     "2": {
       lat: "22.363848",
       lng: "82.734840",
-      name: "Korba",
-      description: "Coal production =  million tonnes"
+      name: "Korba Coal Field",
+      description: "Coal production = 28.2 million tonnes"
     },
     "3": {
       lat: "24.19973",
       lng: "82.67535",
-      name: "Singrauli"
+      name: "Singrauli Coal Field",
+      description: "Coal production = 24.57 million tonnes"
     },
     "4": {
       lat: "20.94927",
       lng: "85.23354",
-      name: "Talcher"
+      name: "Talcher Coal Field",
+      description: "Coal production = 21.87 million tonnes"
     },
     "5": {
       lat: "18.000",
       lng: "79.83333",
-      name: "Warangal"
+      name: "Warangal Coal Field",
+      description: "Coal production = 3.7 million tonnes"
     },
     "6": {
       lat: "11.533",
       lng: "79.48",
-      name: "Neyveli"
+      name: "Neyveli Coal Field",
+      description: "Coal production = 32.65 million tonnes"
     },
     "7": {
       lat: "23.68562",
       lng: "85.99026",
-      name: "Bokaro"
+      name: "Bokaro Coal Field",
+      description: "Coal production = 29.78 million tonnes"
     },
     "8": {
       lat: "20.73933",
       lng: "78.59784",
-      name: "Wardha"
-    }
+      name: "Wardha Valley Coal Field",
+      description: "Coal production = 12.5 million tonnes"
+    },
+    "9": {
+      lat: "23.43",
+      lng: " 84.825",
+      name: "Auranga Coal Field",
+      description: "Coal production = 2.3 million tonnes"
+    },
+    "10": {
+      lat: "25.75",
+      lng: "71.38",
+      name: "Barmer Coal Field",
+      description: "Coal production = 2.6 million tonnes"
+    },
+    "12": {
+      lat: "23.1197",
+      lng: "83.2074",
+      name: "Bisrampur Coal Field",
+      description: "Coal production = 5.8 million tonnes"
+    },
+    "13": {
+      lat: "24.2038",
+      lng: "84.8700",
+      name: "Chatra Coal Field",
+      description: "Coal production = 4.9 million tonnes"
+    },
+    "14": {
+      lat: " 23.188",
+      lng: "82.346",
+      name: "Chirimiri Coal Field",
+      description: "Coal production = 2.87 million tonnes"
+    },
+    "15": {
+      lat: "11.7465",
+      lng: "79.7681",
+      name: "Cuddalore Coal Field",
+      description: "Coal production = 3.678 million tonnes"
+    },
+    "16": {
+      lat: "24.0394",
+      lng: "84.0713",
+      name: "Daltonganj Coal Field",
+      description: "Coal production = 1.567 million tonnes"
+    },
+    "18": {
+      lat: "25.5207",
+      lng: "71.0882",
+      name: "Giral Coal Field",
+      description: "Coal production = 0.34 million tonnes"
+    },
+    "19": {
+      lat: "24.1800",
+      lng: "86.3200",
+      name: "Giridih Coal Field",
+      description: "Coal production = 0.76 million tonnes"
+    },
+    "20": {
+      lat: "17.5000",
+      lng: "80.6000",
+      name: "Godavari Valley Coal Field",
+      description: "Coal production = 39.3 million tonnes"
+    },
+    "21": {
+      lat: "22.86",
+      lng: "82.31",
+      name: "Hasdeo Arand Coal Field",
+      description: "Coal production = 2.34 million tonnes"
+    },
+    "22": {
+      lat: "23.798166",
+      lng: "85.586162",
+      name: "Hazaribagh Coal Field",
+      description: "Coal production = 0.467 million tonnes"
+    },
+    "23": {
+      lat: "24.0394",
+      lng: "84.0713",
+      name: "Ib Valley Coal Field",
+      description: "Coal production = 3.4 million tonnes"
+    },
+    "24": {
+      lat: "23.0400",
+      lng: "82.0200",
+      name: "Jhilimili Coal Field",
+      description: "Coal production = 1.89 million tonnes"
+    },
+    "25": {
+      lat: "23.4200",
+      lng: "81.9900",
+      name: "Johilla Coal Field",
+      description: "Coal production = 2.45 million tonnes"
+    },
+    "26": {
+      lat: "21.2333",
+      lng: "79.2000",
+      name: "Kamptee Coal Field",
+      description: "Coal production = 1.453 million tonnes"
+    },
+    "27": {
+      lat: "27.281",
+      lng: "95.749",
+      name: "Makum Coal Field",
+      description: "Coal production = 0.568 million tonnes"
+    },
+    "28": {
+      lat: "18.8707",
+      lng: "79.4286",
+      name: "Mancherial Coal Field",
+      description: "Coal production = 0.893 million tonnes"
+    },
+    "29": {
+      lat: "22.26573",
+      lng: "83.34132",
+      name: "Mand-Raigarh Coal Field",
+      description: "Coal production = 0.967 million tonnes"
+    },
+    "30": {
+      lat: "23.7281",
+      lng: "85.1061",
+      name: "Karanpura Coal Field",
+      description: "Coal production = 25.98 million tonnes"
+    },
+    "31": {
+      lat: "18.61357",
+      lng: "79.37442",
+      name: "Peddapalli Coal Field",
+      description: "Coal production = 2.12 million tonnes"
+    },
+    "32": {
+      lat: "22.213888",
+      lng: "78.74695",
+      name: "Pench-Kanhan Coal Field",
+      description: "Coal production = 1.976 million tonnes"
+    },
+    "33": {
+      lat: "25.043056",
+      lng: "87.34417",
+      name: "Rajmahal Coal Field",
+      description: "Coal production = 1.34 million tonnes"
+    },
+    "34": {
+      lat: "21.8333",
+      lng: "73.5167",
+      name: " Rajpardi Coal Field",
+      description: "Coal production = 2.567 million tonnes"
+    },
+    "35": {
+      lat: "23.298055",
+      lng: "85.67611",
+      name: "Ramgarh Coal Field",
+      description: "Coal production = 2.8597 million tonnes"
+    },
+    "36": {
+      lat: "23.233334",
+      lng: "81.5",
+      name: "Sohagpur Coal Field",
+      description: "Coal production = 0.3668 million tonnes"
+    },
   },
   labels: {
-    "0": {
-      name: "Jharia",
-      x: "599",
-      parent_type: "location",
-      parent_id: "1",
-      size: "20",
-      font: "Arial",
-      hover_color: "#000000",
-      display: "all",
-      color: "#000000",
-      line: "no",
-      pill: "no",
-      y: "460.3"
-    },
-    "1": {
-      name: "Raniganj",
-      x: 662.3,
-      parent_type: "location",
-      parent_id: "1",
-      color: "#000000",
-      hover_color: "#000000",
-      size: "20",
-      line: "no",
-      pill: "no",
-      display: "all",
-      y: "480.6",
-      font: "Arial"
-    },
-    "2": {
-      name: "Korba",
-      x: "500.66667",
-      y: "521.16667",
-      parent_type: "location",
-      parent_id: "2",
-      color: "#000000",
-      hover_color: "#000000",
-      size: "20",
-      font: "Arial",
-      line: "no",
-      pill: "no",
-      display: "all"
-    },
-    "3": {
-      name: "Singrauli",
-      parent_id: "3",
-      parent_type: "location",
-      color: "#000000",
-      hover_color: "#000000",
-      size: "20",
-      font: "Arial",
-      line: "no",
-      pill: "no",
-      display: "all",
-      x: 496.6,
-      y: "447.7"
-    },
-    "4": {
-      name: "Talcher",
-      parent_id: "4",
-      color: "#000000",
-      hover_color: "#000000",
-      size: "20",
-      font: "Arial",
-      line: "no",
-      pill: "no",
-      display: "all",
-      parent_type: "location",
-      x: 566.7,
-      y: "564.1"
-    },
-    "5": {
-      name: "Warangal",
-      parent_type: "location",
-      parent_id: "5",
-      color: "#000000",
-      hover_color: "#000000",
-      size: "20",
-      font: "Arial",
-      line: "no",
-      pill: "no",
-      display: "all",
-      x: 418.8,
-      y: "648.8"
-    },
-    "6": {
-      name: "Neyveli",
-      parent_type: "location",
-      parent_id: "6",
-      color: "#000000",
-      hover_color: "#000000",
-      size: "20",
-      font: "Arial",
-      line: "no",
-      pill: "no",
-      display: "all",
-      x: 409.1,
-      y: "832"
-    },
-    "7": {
-      name: "Bokaro",
-      parent_type: "location",
-      parent_id: "7",
-      color: "#000000",
-      hover_color: "#000000",
-      size: "20",
-      font: "Arial",
-      line: "no",
-      pill: "no",
-      display: "all",
-      x: "577.4",
-      y: "482.1"
-    },
-    "8": {
-      name: "Wardha",
-      parent_type: "location",
-      parent_id: "8",
-      color: "#000000",
-      hover_color: "#000000",
-      size: "20",
-      font: "Arial",
-      line: "no",
-      pill: "no",
-      display: "all",
-      x: 385,
-      y: "569.3"
-    },
     INAN: {
       name: "Andaman and Nicobar",
       parent_id: "INAN",
@@ -580,71 +616,7 @@ var simplemaps_countrymap_mapdata={
     }
   },
   legend: {
-    entries: [
-      {
-        name: "Jharia",
-        color: "Red",
-        type: "location",
-        shape: "circle",
-        ids: "1"
-      },
-      {
-        name: "Raniganj",
-        color: "Red",
-        type: "location",
-        shape: "circle",
-        ids: "0"
-      },
-      {
-        name: "Korba",
-        color: "Red",
-        type: "location",
-        shape: "circle",
-        ids: "2"
-      },
-      {
-        name: "Singrauli",
-        color: "Red",
-        type: "location",
-        shape: "circle",
-        ids: "3"
-      },
-      {
-        name: "Talcher",
-        color: "Red",
-        type: "location",
-        shape: "circle",
-        ids: "4"
-      },
-      {
-        name: "Warangal",
-        color: "Red",
-        type: "location",
-        shape: "circle",
-        ids: "5"
-      },
-      {
-        name: "Neyveli",
-        color: "Red",
-        type: "location",
-        shape: "circle",
-        ids: "6"
-      },
-      {
-        name: "Bokaro",
-        color: "Red",
-        type: "location",
-        shape: "circle",
-        ids: "7"
-      },
-      {
-        name: "Wardha",
-        color: "Red",
-        type: "location",
-        shape: "circle",
-        ids: "8"
-      }
-    ]
+    entries: []
   },
   regions: {}
 };
