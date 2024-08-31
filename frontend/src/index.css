@@ -1,3 +1,8 @@
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,5 +10,50 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* font-family: 'Roboto', sans-serif; */
+
+}
+
+/* Base font styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+/* Utility classes for font families */
+.font-heading {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.font-accent {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Additional utility classes for common text styles */
+.text-bold {
+  font-weight: 700;
+}
+
+.text-semibold {
+  font-weight: 600;
+}
+
+.text-medium {
+  font-weight: 500;
+}
+
+.text-regular {
+  font-weight: 400;
 }
