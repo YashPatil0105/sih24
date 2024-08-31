@@ -134,13 +134,19 @@ export const CarbonNeutralitySimulator = () => {
     );
   };
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-10 text-center">Carbon Neutrality Pathways Simulator</h1>
-      
+    <div className="bg-gradient-to-br from-blue-100 to-green-100 p-6 max-w-6xl mx-auto">
+      <h1 className="text-3xl font-bold mb-10 text-center">
+        Carbon Neutrality Pathways Simulator
+      </h1>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div>
-
-          <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">State</label>
+          <label
+            htmlFor="location"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            State
+          </label>
           <input
             id="location"
             type="text"
@@ -148,7 +154,12 @@ export const CarbonNeutralitySimulator = () => {
             onChange={(e) => setlocation(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 mb-4"
           />
-          <label htmlFor="mine_size" className="block text-sm font-medium text-gray-700 mb-1">Mine Size</label>
+          <label
+            htmlFor="mine_size"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Mine Size
+          </label>
           <select
             id="mine_size"
             value={mine_size}
@@ -162,7 +173,12 @@ export const CarbonNeutralitySimulator = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="emission" className="block text-sm font-medium text-gray-700 mb-1">Emission (tons CO2e)</label>
+          <label
+            htmlFor="emission"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Emission (tons CO2e)
+          </label>
           <input
             id="emission"
             type="number"
@@ -170,7 +186,12 @@ export const CarbonNeutralitySimulator = () => {
             onChange={(e) => setemission(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 mb-4"
           />
-          <label htmlFor="mine_type" className="block text-sm font-medium text-gray-700 mb-1">Mine Type</label>
+          <label
+            htmlFor="mine_type"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Mine Type
+          </label>
           <select
             id="mine_type"
             value={mine_type}
@@ -184,7 +205,7 @@ export const CarbonNeutralitySimulator = () => {
           </select>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <StrategyCard
@@ -213,12 +234,14 @@ export const CarbonNeutralitySimulator = () => {
             disabled={isLoading}
             className="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50"
           >
-            {isLoading ? 'Calculating...' : 'Calculate'}
+            {isLoading ? "Calculating..." : "Calculate"}
           </button>
         </div>
         <div>
           <div className="bg-white rounded-lg shadow-md h-full flex flex-col justify-center p-4">
-            <h3 className="text-xl font-semibold text-center mb-4">Emissions Breakdown</h3>
+            <h3 className="text-xl font-semibold text-center mb-4">
+              Emissions Breakdown
+            </h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
@@ -243,24 +266,26 @@ export const CarbonNeutralitySimulator = () => {
                   <span className="text-green-500">Carbon Neutral!</span>
                 ) : (
                   <span>
-                    Remaining Emissions: <span className="text-red-500">{emissions}%</span>
+                    Remaining Emissions:{" "}
+                    <span className="text-red-500">{emissions}%</span>
                   </span>
                 )}
               </p>
               <p className="text-sm text-gray-500 mt-2">
-                Adjust the sliders to see how different strategies impact emissions.
+                Adjust the sliders to see how different strategies impact
+                emissions.
               </p>
             </div>
           </div>
         </div>
       </div>
-      
+
       {error && (
         <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
           Error: {error}
         </div>
       )}
-            {calculationResult && (
+      {calculationResult && (
         <div className="mt-8">
           <h4 className="font-semibold mb-4">Strategy Comparison:</h4>
           <ResponsiveContainer width="100%" height={300}>
@@ -271,8 +296,18 @@ export const CarbonNeutralitySimulator = () => {
               <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
               <Tooltip />
               <Legend />
-              <Bar yAxisId="left" dataKey="cost" fill="#8884d8" name="Cost (₹)" />
-              <Bar yAxisId="right" dataKey="impact" fill="#82ca9d" name="Impact (CO2e reduction)" />
+              <Bar
+                yAxisId="left"
+                dataKey="cost"
+                fill="#8884d8"
+                name="Cost (₹)"
+              />
+              <Bar
+                yAxisId="right"
+                dataKey="impact"
+                fill="#82ca9d"
+                name="Impact (CO2e reduction)"
+              />
             </BarChart>
           </ResponsiveContainer>
         </div>
