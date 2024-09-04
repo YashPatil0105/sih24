@@ -3,7 +3,7 @@ const Factors = require("../model/emissionFactors");
 const excavation = async (req, res) => {
     try {
         const { emissionFactorValue } = await Factors.findOne({
-            causeOfEmission: req.body.causeOfEmission,
+            causeOfEmission: req.body.fuelType,
         });
 
         const { operatingHours, fuelConsumptionRate } = req.body;
@@ -20,7 +20,7 @@ const excavation = async (req, res) => {
 const transportation = async (req, res) => {
     try {
         const { emissionFactorValue } = await Factors.findOne({
-            causeOfEmission: req.body.causeOfEmission,
+            causeOfEmission: req.body.fuelType,
         });
 
         const { distanceCovered, numberOfTrips, fuelConsumptionRate } =
@@ -40,10 +40,10 @@ const transportation = async (req, res) => {
 
 const equipment = async (req, res) => {
     try {
-        if (req.body.type == "Diesel") {
-            const { operatingHours, fuelConsumptionRate } = req.body;
+        if (req.body.energySource == "Diesel") {
+            const { operatingHours, energyConsumptionRate } = req.body;
 
-            const totalEmission = operatingHours * fuelConsumptionRate * 2.68;
+            const totalEmission = operatingHours * energyConsumptionRate * 2.68;
 
             return res.status(200).json({ totalEmission });
         } else {
@@ -61,7 +61,7 @@ const equipment = async (req, res) => {
 const blasting = async (req, res) => {
     try {
         const { emissionFactorValue } = await Factors.findOne({
-            causeOfEmission: req.body.causeOfEmission,
+            causeOfEmission: req.body.explosiveType,
         });
 
         const { amountOfExplosive } = req.body;
@@ -76,9 +76,9 @@ const blasting = async (req, res) => {
 
 const powerConsumption = async (req, res) => {
     try {
-        const { dailyPowerConsumption } = req.body;
+        const { dailyConsumption } = req.body;
 
-        const totalEmission = dailyPowerConsumption * 0.82;
+        const totalEmission = dailyConsumption * 0.82;
 
         return res.status(200).json({ totalEmission });
     } catch (error) {
@@ -88,10 +88,10 @@ const powerConsumption = async (req, res) => {
 
 const water = async (req, res) => {
     try {
-        if (req.body.type == "Diesel") {
-            const { waterPumped, fuelConsumptionRate } = req.body;
+        if (req.body.pumpType == "Diesel") {
+            const { waterPumped, energyConsumptionRate } = req.body;
 
-            const totalEmission = waterPumped * fuelConsumptionRate * 2.68;
+            const totalEmission = waterPumped * energyConsumptionRate * 2.68;
 
             return res.status(200).json({ totalEmission });
         } else {
@@ -109,7 +109,7 @@ const water = async (req, res) => {
 const employeeTransportation = async (req, res) => {
     try {
         const { emissionFactorValue } = await Factors.findOne({
-            causeOfEmission: req.body.causeOfEmission,
+            causeOfEmission: req.body.fuelType,
         });
 
         const { distanceCovered, numberOfEmployees, fuelConsumptionRate } =
