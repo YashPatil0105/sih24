@@ -47,9 +47,9 @@ const equipment = async (req, res) => {
 
             return res.status(200).json({ totalEmission });
         } else {
-            const { powerConsumption } = req.body;
+            const { energyConsumptionRate } = req.body;
 
-            const totalEmission = powerConsumption * 0.82;
+            const totalEmission = energyConsumptionRate * 0.82;
 
             return res.status(200).json({ totalEmission });
         }
@@ -95,9 +95,9 @@ const water = async (req, res) => {
 
             return res.status(200).json({ totalEmission });
         } else {
-            const { powerConsumption } = req.body;
+            const { energyConsumptionRate } = req.body;
 
-            const totalEmission = powerConsumption * 0.82;
+            const totalEmission = energyConsumptionRate * 0.82;
 
             return res.status(200).json({ totalEmission });
         }
