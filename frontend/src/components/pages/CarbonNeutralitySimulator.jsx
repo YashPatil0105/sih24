@@ -7,12 +7,12 @@ export const CarbonNeutralitySimulator = () => {
   const [afforestation_part, setafforestation_part] = useState(0);
   const [renewable_part, setrenewable_part] = useState(0);
   const [emissions, setEmissions] = useState(100);
-  
+
   const [location, setlocation] = useState('');
   const [emission, setemission] = useState('');
   const [mine_type, setmine_type] = useState('');
   const [mine_size, setmine_size] = useState('');
-  
+
   const [calculationResult, setCalculationResult] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -69,13 +69,13 @@ export const CarbonNeutralitySimulator = () => {
         }),
       });
 
-      console.log(location,emission,mine_type,mine_size,methane_part,afforestation_part,renewable_part);
-      
-      
+      console.log(location, emission, mine_type, mine_size, methane_part, afforestation_part, renewable_part);
+
+
       if (!response.ok) {
         throw new Error('Failed to calculate');
       }
-      
+
       const result = await response.json();
       setCalculationResult(result);
     } catch (err) {
@@ -84,55 +84,89 @@ export const CarbonNeutralitySimulator = () => {
       setIsLoading(false);
     }
   };
-
+  const stringToNumberMapping = {
+    "Low": 1,
+    "Medium": 2,
+    "High": 3,
+    "N/A": 0 // Default value for "Not Available"
+  };
   useEffect(() => {
     if (calculationResult) {
+      // Extract and parse the afforestation cost and impact
+      const afforestationCost = parseFloat(calculationResult.afforestation.total_cost.replace('Rs ', '').replace(',', ''));
+      const afforestationImpact = calculationResult.afforestation.impact;
+  
+      // Sum up costs and impacts for methane_capture strategies
+      const methaneCaptureData = calculationResult.methane_capture;
+      const methaneCaptureCost = methaneCaptureData.reduce((acc, item) => acc + parseFloat(item.total_cost.replace('Rs ', '').replace(',', '')), 0);
+      const methaneCaptureImpact = methaneCaptureData.reduce((acc, item) => acc + item.impact, 0);
+  
+      // Sum up costs and impacts for renewable_energy strategies
+      const renewableEnergyData = calculationResult.renewable_energy;
+      const renewableEnergyCost = renewableEnergyData.reduce((acc, item) => acc + parseFloat(item.total_cost.replace('Rs ', '').replace(',', '')), 0);
+      const renewableEnergyImpact = renewableEnergyData.reduce((acc, item) => acc + item.impact, 0);
+  
+      // Prepare the data for the bar chart
       const newBarChartData = [
         {
           name: 'Afforestation',
-          cost: calculationResult.afforestation_strategy.total_cost,
-          impact: calculationResult.afforestation_strategy.impact
+          cost: afforestationCost,
+          impact: afforestationImpact
+        },
+        {
+          name: 'Methane Capture',
+          cost: methaneCaptureCost,
+          impact: methaneCaptureImpact
         },
         {
           name: 'Renewable Energy',
-          cost: parseFloat(calculationResult.renewable_energy.total_cost.replace('₹', '').replace(',', '')),
-          impact: parseFloat(calculationResult.renewable_energy.impact.split(' ')[0]) * parseFloat(calculationResult.renewable_energy.total_cost.replace('₹', '').replace(',', ''))
+          cost: renewableEnergyCost,
+          impact: renewableEnergyImpact
         }
       ];
       setBarChartData(newBarChartData);
     }
   }, [calculationResult]);
+  
 
   const formatResult = (result) => {
     return (
       <div className="space-y-4">
         <div className="bg-blue-100 p-4 rounded-md">
           <h5 className="font-semibold text-blue-800">Afforestation Strategy</h5>
-          <ul className="list-disc list-inside">
-            <li>Area: {result.afforestation_strategy.area} hectares</li>
-            <li>Impact: {result.afforestation_strategy.impact} tonnes CO2 per year</li>
-            <li>Total Cost: ₹{result.afforestation_strategy.total_cost.toFixed(2)}</li>
-            <li>Tree Type: {result.afforestation_strategy.tree_type}</li>
-          </ul>
+          <p>Tree Type: {result.afforestation.type_of_tree}</p>
+          <p>Area Required: {result.afforestation.area_to_grow_trees_ha}</p>
+          <p>Impact: {result.afforestation.impact}</p>
+          <p>Cost: {result.afforestation.total_cost}</p>
         </div>
-
+        
         <div className="bg-green-100 p-4 rounded-md">
           <h5 className="font-semibold text-green-800">Methane Capture Systems</h5>
-          <p>{result.methane_capture_systems}</p>
+          {result.methane_capture.map((item, index) => (
+            <div key={index} className="mb-2">
+              <p>Technology: {item.technology_to_use}</p>
+              <p>Devices: {item.devices}</p>
+              <p>Impact: {item.impact}</p>
+              <p>Cost: {item.total_cost}</p>
+            </div>
+          ))}
         </div>
-
+        
         <div className="bg-yellow-100 p-4 rounded-md">
           <h5 className="font-semibold text-yellow-800">Renewable Energy</h5>
-          <ul className="list-disc list-inside">
-            <li>Impact: {result.renewable_energy.impact}</li>
-            <li>Strategy: {result.renewable_energy.renewable_strategy}</li>
-            <li>Total Cost: {result.renewable_energy.total_cost}</li>
-            <li>Usage: {result.renewable_energy.usage}</li>
-          </ul>
+          {result.renewable_energy.map((item, index) => (
+            <div key={index} className="mb-2">
+              <p>Strategy: {item.renewable_strategy}</p>
+              <p>Devices: {item.devices}</p>
+              <p>Impact: {item.impact}</p>
+              <p>Cost: {item.total_cost}</p>
+            </div>
+          ))}
         </div>
       </div>
     );
   };
+  
   return (
     <div className="bg-gradient-to-br from-blue-100 to-green-100 p-6 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold mb-10 text-center">
@@ -167,9 +201,9 @@ export const CarbonNeutralitySimulator = () => {
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 mb-4"
           >
             <option value="">Select mine size</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
           </select>
         </div>
         <div>
@@ -199,9 +233,8 @@ export const CarbonNeutralitySimulator = () => {
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 mb-4"
           >
             <option value="">Select mine type</option>
-            <option value="opencast">Opencast</option>
-            <option value="underground">Underground</option>
-            <option value="quarry">Quarry</option>
+            <option value="Open-Pit">Opencast</option>
+            <option value="Underground">Underground</option>
           </select>
         </div>
       </div>
@@ -321,3 +354,7 @@ export const CarbonNeutralitySimulator = () => {
     </div>
   );
 };
+
+
+
+
