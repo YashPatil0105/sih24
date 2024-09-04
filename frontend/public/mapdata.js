@@ -17,7 +17,7 @@ var simplemaps_countrymap_mapdata={
     
     //Location defaults
     location_description: "Location description",
-    location_url: "./Features.html",
+    location_url: "http://localhost:5173/mineData",
     location_color: "#FF0000",
     location_opacity: "1",
     location_hover_opacity: 1,
