@@ -12,7 +12,6 @@ def calculate():
     data = request.json
 
     # Parse input
-    
     mine_type = data.get('mine_type')
     location = data.get('location')
     emission = data.get('emission')
@@ -63,12 +62,12 @@ def calculate():
     if renewable_part > 0:
         renewable_data = fetch_renewable(mine_type, mine_size)
         response['renewable_energy'] = calculate_renewable_strategy(renewable_data, emission, renewable_part)
-    
+
     return jsonify(response)
 
 def calculate_afforestation_strategy(emission, afforestation_part, max_area):
     # Constants for Teak tree
-    TEAK_DAILY_CARBON_CONSUMPTION = 20.27  # tonnes per day per tree
+    TEAK_DAILY_CARBON_CONSUMPTION = 10.13  # tonnes per day per tree
     TEAK_INITIAL_COST = 226025 # in currency rupees per hectare
 
     # Calculate the emission to compensate
@@ -89,7 +88,7 @@ def calculate_afforestation_strategy(emission, afforestation_part, max_area):
     total_cost = area_needed * TEAK_INITIAL_COST
 
     # Calculate the impact
-    impact = (emission_to_compensate / total_cost) * 10000
+    impact = (emission_to_compensate*365*450 / total_cost)
 
     # Prepare the afforestation strategy response
     return {
@@ -106,7 +105,8 @@ def calculate_methane_strategy(methane_data, emission, methane_part):
     results = []
     for strategy_data in methane_data:
         total_cost = float(strategy_data['Cost'])
-        impact = (emission_to_compensate / total_cost) * 100
+        lifetime = float(strategy_data['LifeTime'])
+        impact = (emission_to_compensate*365*lifetime / total_cost)
 
         results.append({
             "technology_to_use": strategy_data['Technology'],
@@ -122,8 +122,9 @@ def calculate_renewable_strategy(renewable_data, emission, renewable_part):
 
     results = []
     for strategy_data in renewable_data:
-        total_cost = strategy_data["Cost"]
-        impact = (emission_to_compensate / total_cost) * 100
+        total_cost = float(strategy_data["Cost"])
+        lifetime = float(strategy_data['Lifetime'])
+        impact = (emission_to_compensate*365*lifetime / total_cost)
 
         results.append({
             "renewable_strategy": strategy_data["Renewable_Strategy"],
@@ -131,7 +132,6 @@ def calculate_renewable_strategy(renewable_data, emission, renewable_part):
             "total_cost": "Rs " + str(round(total_cost, 2)),
             "impact": round(impact, 2)  # emission controlled per cost unit * 100
         })
-        
     return results
 
 if __name__ == '__main__':

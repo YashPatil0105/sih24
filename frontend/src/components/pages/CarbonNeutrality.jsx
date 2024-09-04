@@ -8,15 +8,16 @@ import { AfforestationOffsets } from './AfforestationOffsets';
 const pathwaysData = {
   cleanTechnologies: {
     description: 'Adopt technologies like electric vehicles, methane capture systems, and renewable energy sources.',
-    impact: [10, 20, 30, 40, 50]
+    impact: [375, 2100, 6000, 6000, 12000, 12000]
   },
   afforestationOffsets: {
     description: 'Calculate land area required for tree plantations based on state-specific afforestation plans.',
-    impact: [15, 25, 35, 45, 55]
+    impact: [375, 2100, 6000, 6000, 12000, 12000]
   },
   renewableEnergy: {
     description: 'Explore potential of using renewable energy sources to reduce reliance on fossil fuels.',
-    impact: [20, 30, 40, 50, 60]
+    impact: [20, 30, 40, 50, 60],
+    additionalData: [[10, 20, 30, 40, 50], [5, 15, 25, 35, 45]]
   }
 };
 
@@ -27,16 +28,14 @@ const paths = [
 ];
 
 const getChartData = (data) => ({
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-  datasets: [
-    {
-      label: 'Impact Over Time',
-      data: data,
-      borderColor: '#1d4ed8',
-      backgroundColor: 'rgba(29, 78, 216, 0.2)',
-      borderWidth: 2
-    }
-  ]
+  labels: ['5', '10', '15', '20', '25'],
+  datasets: data.map((dataset, index) => ({
+    label: `Method ${index + 1}`,
+    data: dataset,
+    borderColor: index === 0 ? '#1d4ed8' : index === 1 ? '#4ade80' : '#fb7185',
+    backgroundColor: index === 0 ? 'rgba(29, 78, 216, 0.2)' : index === 1 ? 'rgba(74, 222, 128, 0.2)' : 'rgba(251, 113, 133, 0.2)',
+    borderWidth: 2
+  }))
 });
 
 export const CarbonNeutrality = () => {
@@ -75,19 +74,32 @@ export const CarbonNeutrality = () => {
             <Tab.Panel key={path.id}>
               <div className="space-y-4">
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">
-                  {path.name}
+                  {path.name} 
                 </h2>
                 <p className="text-gray-700 text-sm sm:text-lg lg:text-xl">
                   {pathwaysData[path.id].description}
                 </p>
                 <div className="mt-4">
                   <div className="relative h-64 sm:h-72 lg:h-96">
-                    <Line
-                      data={getChartData(pathwaysData[path.id].impact)}
+                  <Line
+                      data={getChartData(
+                        path.id === 'renewableEnergy'
+                          ? [
+                              pathwaysData.renewableEnergy.impact,
+                              ...pathwaysData.renewableEnergy.additionalData
+                            ]
+                          : [pathwaysData[path.id].impact]
+                      )}
                       ref={chartRef}
                       options={{
                         responsive: true,
                         maintainAspectRatio: false,
+                        plugins: {
+                          title: {
+                            display: true,
+                            text: 'Impact Over Time'
+                          }
+                        }
                       }}
                     />
                   </div>
