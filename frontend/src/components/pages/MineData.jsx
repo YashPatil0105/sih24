@@ -9,7 +9,7 @@ export const MineData = () => {
   const [selectedMine, setSelectedMine] = useState("");
 
   useEffect(() => {
-    fetch("/api/getCoalFields")
+    fetch("http://127.0.0.1:5500/api/getCoalFields")
       .then((response) => response.json())
       .then((data) => setCoalFields(data))
       .catch((error) => console.error("Error fetching coal fields:", error));
@@ -22,7 +22,7 @@ export const MineData = () => {
     setMines([]);
 
     if (field) {
-      fetch(`/api/getMines?location=${field}`)
+      fetch(`http://127.0.0.1:5500/api/getMines?location=${field}`)
         .then((response) => response.json())
         .then((data) => setMines(data))
         .catch((error) => console.error("Error fetching coal mines:", error));
@@ -34,7 +34,7 @@ export const MineData = () => {
     setSelectedMine(mine);
 
     if (mine) {
-      fetch(`/api/getMineInfo?name=${mine}`)
+      fetch(`http://127.0.0.1:5500/api/getMineInfo?name=${mine}`)
         .then((response) => response.json())
         .then((data) => {
           if (data.error) {
@@ -123,9 +123,11 @@ export const MineData = () => {
         <button type="button" id="goBack" onClick={handleGoBack}>
           Go Back
         </button>
+        <a href="./Estimation">
         <button type="submit" id="calculate">
           Calculate Carbon Emission
         </button>
+        </a>
       </div>
     </div>
   );

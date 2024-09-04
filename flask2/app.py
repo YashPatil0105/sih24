@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify, render_template
 from pymongo import MongoClient
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app, origins=["http://localhost:5173"])
 
 MONGO_URI = 'mongodb+srv://purabrtamboli:purabmongodb@cluster0.mpzuz25.mongodb.net/SIH2024?retryWrites=true&w=majority&appName=Cluster0'
 client = MongoClient(MONGO_URI)
@@ -13,7 +16,7 @@ app.config['JWT_SECRET_KEY'] = 'SIH2024'
 
 @app.route('/')
 def home():
-    return render_template('./Features.html')
+    return render_template('D:\sih24\\frontend\src\components\pages\MineData.jsx')
 
 
 @app.route('/api/getCoalFields', methods=['GET'])
@@ -62,5 +65,5 @@ def get_mines():
     return jsonify(mines)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5500)
 
