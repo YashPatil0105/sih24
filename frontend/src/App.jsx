@@ -3,7 +3,7 @@ import "./App.css";
 import "./index.css";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
-import { CarbonNeutrality, CarbonCredits,  Estimation,CarbonNeutralitySimulator,Home} from "./components/pages";
+import { CarbonNeutrality, CarbonCredits,  Estimation,CarbonNeutralitySimulator,Home, MineData} from "./components/pages";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         />
         <Route path="/estimation" element={<Estimation />} />
         <Route path="/carbonCredits" element={<CarbonCredits />} />
+        <Route path="/mineData" element={<MineData />} />
       </Routes>
       <Footer />
     </div>
