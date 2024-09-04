@@ -8,7 +8,26 @@ import { AfforestationOffsets } from './AfforestationOffsets';
 const pathwaysData = {
   cleanTechnologies: {
     description: 'Adopt technologies like electric vehicles, methane capture systems, and renewable energy sources.',
-    impact: [375, 2100, 6000, 6000, 12000, 12000]
+    impact: [1.8, 1.76, 1.72, 1.68, 1.65, 1.62],
+    additionalData: [
+      [1.8, 1.76, 1.72, 1.68, 1.65, 1.62],
+      [5.0, 4.9, 4.8, 4.7, 4.6, 4.5],
+      [0.2, 0.195, 0.19, 0.185, 0.18, 0.175],
+      [0.16, 0.155, 0.15, 0.145, 0.14, 0.135],
+      [1.96, 1.92, 1.88, 1.84, 1.8, 1.76],
+      [9.0, 8.9, 8.8, 8.7, 8.6, 8.5],
+      [1.8, 1.76, 1.72, 1.68, 1.65, 1.62]
+    ],
+    methodNames: [
+      "Methane Drainage Systems",
+      "Methane Recovery Systems",
+      "Gas-to-Energy Systems",
+      "Methane-Fueled Engines",
+      "Methane Fuel Cells",
+      "Flare Systems",
+      "Methane Scrubbers",
+      "Biofilters"
+    ]
   },
   afforestationOffsets: {
     description: 'Calculate land area required for tree plantations based on state-specific afforestation plans.',
@@ -16,8 +35,18 @@ const pathwaysData = {
   },
   renewableEnergy: {
     description: 'Explore potential of using renewable energy sources to reduce reliance on fossil fuels.',
-    impact: [20, 30, 40, 50, 60],
-    additionalData: [[10, 20, 30, 40, 50], [5, 15, 25, 35, 45]]
+    impact: [2.4,	2.9,	3.5,	4	,4.7	,5.4],
+    additionalData: [[1.9	,2.4	,2.8	,3.4	,3.9	,4.3], [2	,2.6	,3.3	,4.1	,4.9	,5.8],  [0.5, 0.7, 0.9, 1.1, 1.1, 1.3],
+    [0.9, 1.1, 1.3, 1.4, 1.7, 1.5],
+    [0.1, 0.2, 0.3, 0.3, 0.4, 0.5]],
+    methodNames: [
+      "Solar Energy",
+      "Wind Energy",
+      "Hydroelectric Power",
+      "Geothermal Energy",
+      "Biomass Energy",
+      "Tidal Energy"
+    ]
   }
 };
 
@@ -27,13 +56,13 @@ const paths = [
   { name: 'Renewable Energy', id: 'renewableEnergy' }
 ];
 
-const getChartData = (data) => ({
-  labels: ['5', '10', '15', '20', '25'],
+const getChartData = (data, methodNames) => ({
+  labels: ['5', '10', '15', '20', '25', '30'],
   datasets: data.map((dataset, index) => ({
-    label: `Method ${index + 1}`,
+    label: methodNames ? methodNames[index] : `Method ${index + 1}`,
     data: dataset,
-    borderColor: index === 0 ? '#1d4ed8' : index === 1 ? '#4ade80' : '#fb7185',
-    backgroundColor: index === 0 ? 'rgba(29, 78, 216, 0.2)' : index === 1 ? 'rgba(74, 222, 128, 0.2)' : 'rgba(251, 113, 133, 0.2)',
+    borderColor: `hsl(${index * 30}, 70%, 50%)`,
+    backgroundColor: `hsla(${index * 30}, 70%, 50%, 0.2)`,
     borderWidth: 2
   }))
 });
@@ -81,14 +110,15 @@ export const CarbonNeutrality = () => {
                 </p>
                 <div className="mt-4">
                   <div className="relative h-64 sm:h-72 lg:h-96">
-                  <Line
+                    <Line
                       data={getChartData(
-                        path.id === 'renewableEnergy'
+                        path.id === 'renewableEnergy' || path.id === 'cleanTechnologies'
                           ? [
-                              pathwaysData.renewableEnergy.impact,
-                              ...pathwaysData.renewableEnergy.additionalData
+                              pathwaysData[path.id].impact,
+                              ...pathwaysData[path.id].additionalData
                             ]
-                          : [pathwaysData[path.id].impact]
+                          : [pathwaysData[path.id].impact],
+                        pathwaysData[path.id].methodNames
                       )}
                       ref={chartRef}
                       options={{
@@ -98,6 +128,25 @@ export const CarbonNeutrality = () => {
                           title: {
                             display: true,
                             text: 'Impact Over Time'
+                          },
+                          legend: {
+                            display: true,
+                            position: 'bottom'
+                          }
+                        },
+                        scales: {
+                          y: {
+                            beginAtZero: true,
+                            title: {
+                              display: true,
+                              text: 'Impact (units)'
+                            }
+                          },
+                          x: {
+                            title: {
+                              display: true,
+                              text: 'Years'
+                            }
                           }
                         }
                       }}
@@ -109,7 +158,7 @@ export const CarbonNeutrality = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-      <AfforestationOffsets />
+
     </div>
   );
 };
