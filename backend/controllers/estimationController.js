@@ -64,9 +64,9 @@ const blasting = async (req, res) => {
             causeOfEmission: req.body.explosiveType,
         });
 
-        const { amountOfExplosive } = req.body;
+        const { amountUsed } = req.body;
 
-        const totalEmission = amountOfExplosive * emissionFactorValue;
+        const totalEmission = amountUsed * emissionFactorValue;
 
         return res.status(200).json({ totalEmission });
     } catch (error) {
@@ -112,11 +112,11 @@ const employeeTransportation = async (req, res) => {
             causeOfEmission: req.body.fuelType,
         });
 
-        const { distanceCovered, numberOfEmployees, fuelConsumptionRate } =
+        const { distanceTraveled, numberOfEmployees, fuelConsumptionRate } =
             req.body;
 
         const totalEmission =
-            distanceCovered *
+            distanceTraveled *
             numberOfEmployees *
             fuelConsumptionRate *
             emissionFactorValue;
