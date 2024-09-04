@@ -6,6 +6,7 @@ export * from "./CarbonNeutralitySimulator";
 export * from "./AfforestationOffsets";
 export * from "./Home";
 export * from "./MineData";
+export * from "./Dashboard";
 
 
 // export { default as CarbonNeutrality } from "./CarbonNeutrality";
