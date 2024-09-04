@@ -62,6 +62,7 @@ export const Estimation = () => {
     },
     transportation: {
       vehicleType: '',
+      fuelType: '',
       distanceCovered: '',
       fuelConsumptionRate: '',
       loadCapacity: '',
@@ -92,6 +93,7 @@ export const Estimation = () => {
       transportMode: '',
       distanceTraveled: '',
       fuelType: '',
+      fuelConsumptionRate: '',
       numberOfEmployees: ''
     },
     wasteManagement: {
@@ -109,7 +111,8 @@ export const Estimation = () => {
       fuelType: ['Diesel', 'Biodiesel', 'Electricity', 'Natural Gas', 'Hydrogen Fuel Cell']
     },
     transportation: {
-      vehicleType: ['Haul Trucks', 'Conveyor Belts', 'Rail Transport', 'Underground Shuttle Cars', 'Skid-Steer Loaders']
+      vehicleType: ['Haul Trucks', 'Conveyor Belts', 'Rail Transport', 'Underground Shuttle Cars', 'Skid-Steer Loaders'],
+      fuelType: ['Diesel', 'Biodiesel', 'Electricity', 'Natural Gas', 'Hydrogen Fuel Cell']
     },
     equipmentUsage: {
       equipmentType: ['Generators', 'Crushers', 'Screening Machines', 'Drills', 'Ventilation Systems', 'Pumps'],
@@ -199,33 +202,46 @@ export const Estimation = () => {
 const handleSubmit = async (e) => {
   e.preventDefault();
 
+  // Base URL for your API
+  const baseUrl = 'http://localhost:5000/api/v1/estimation'; // Adjust this based on your API route structure
+
+  // Define endpoints for each category
   const endpoints = {
-    excavation: '/api/estimation/excavation',
-    transportation: '/api/estimation/transportation',
-    equipmentUsage: '/api/estimation/equipment',
-    blastingOperations: '/api/estimation/blasting',
-    powerConsumption: '/api/estimation/power',
-    waterPumping: '/api/estimation/water',
-    employeeTransportation: '/api/estimation/employeeTransport',
-    wasteManagement: '/api/estimation/waste'
+    excavation: `${baseUrl}/excavation`,
+    transportation: `${baseUrl}/transportation`,
+    equipmentUsage: `${baseUrl}/equipment`,
+    blastingOperations: `${baseUrl}/blasting`,
+    powerConsumption: `${baseUrl}/power`,
+    waterPumping: `${baseUrl}/water`,
+    employeeTransportation: `${baseUrl}/employeeTransport`,
+    wasteManagement: `${baseUrl}/waste`
   };
 
   let totalEmissions = 0;
 
+  // Iterate over each category to send data to the respective endpoint
   for (const [category, data] of Object.entries(formData)) {
     try {
-      const response = await fetch(endpoints[category], {
+      const endpoint = endpoints[category];
+
+      if (!endpoint) {
+        console.warn(`No endpoint found for category: ${category}`);
+        continue;
+      }
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
       });
+      console.log(JSON.stringify(data));
 
       const result = await response.json();
 
       if (response.ok) {
-        totalEmissions += result.totalEmission;
+        totalEmissions += parseFloat(result.totalEmission || 0);
       } else {
         console.error(`Error calculating emissions for ${category}:`, result);
       }
@@ -236,6 +252,9 @@ const handleSubmit = async (e) => {
 
   setCalculatedEmissions(totalEmissions.toFixed(2));
 };
+
+
+
 
   const tabs = [
     { name: 'Excavation', id: 'excavation' },
