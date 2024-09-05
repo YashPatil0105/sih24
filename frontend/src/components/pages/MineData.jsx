@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import "./App.css"; // Import your CSS file
 
 export const MineData = () => {
   const [coalFields, setCoalFields] = useState([]);
@@ -57,73 +56,81 @@ export const MineData = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Select Coal Field and Mine</h1>
+    <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Select Coal Field and Mine</h1>
 
-      <label htmlFor="coalField">Select Coal Field:</label>
-      <select
-        id="coalField"
-        name="coal_field"
-        value={selectedCoalField}
-        onChange={handleCoalFieldChange}
-      >
-        <option value="">Select Coal Field</option>
-        {coalFields.map((field) => (
-          <option key={field} value={field}>
-            {field}
-          </option>
-        ))}
-      </select>
+      <div className="mb-6">
+        <label htmlFor="coalField" className="block text-sm font-medium text-gray-700 mb-2">
+          Select Coal Field:
+        </label>
+        <select
+          id="coalField"
+          name="coal_field"
+          value={selectedCoalField}
+          onChange={handleCoalFieldChange}
+          className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+        >
+          <option value="">Select Coal Field</option>
+          {coalFields.map((field) => (
+            <option key={field} value={field}>
+              {field}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <label htmlFor="coalMine">Select Coal Mine:</label>
-      <select
-        id="coalMine"
-        name="coal_mine"
-        value={selectedMine}
-        onChange={handleMineChange}
-      >
-        <option value="">Select Coal Mine</option>
-        {mines.map((mine) => (
-          <option key={mine.name} value={mine.name}>
-            {mine.name}
-          </option>
-        ))}
-      </select>
+      <div className="mb-6">
+        <label htmlFor="coalMine" className="block text-sm font-medium text-gray-700 mb-2">
+          Select Coal Mine:
+        </label>
+        <select
+          id="coalMine"
+          name="coal_mine"
+          value={selectedMine}
+          onChange={handleMineChange}
+          className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+        >
+          <option value="">Select Coal Mine</option>
+          {mines.map((mine) => (
+            <option key={mine.name} value={mine.name}>
+              {mine.name}
+            </option>
+          ))}
+        </select>
+      </div>
 
       {mineInfo && (
-        <div className="mine-info" id="mineInfo">
-          <h3>Mine Information:</h3>
-          <p>
-            <strong>Name:</strong> <span>{mineInfo.name}</span>
-          </p>
-          <p>
-            <strong>Location:</strong> <span>{mineInfo.location}</span>
-          </p>
-          <p>
-            <strong>State:</strong> <span>{mineInfo.state}</span>
-          </p>
-          <p>
-            <strong>Production:</strong> <span>{mineInfo.production}</span>
-          </p>
-          <p>
-            <strong>Capacity:</strong> <span>{mineInfo.capacity}</span>
-          </p>
-          <p>
-            <strong>Total Emission:</strong>{" "}
-            <span>{mineInfo.totalEmission}</span>
-          </p>
-          <p>
-            <strong>Number of Employees:</strong>{" "}
-            <span>{mineInfo.numberOfEmployees}</span>
-          </p>
+        <div className="bg-white shadow overflow-hidden sm:rounded-lg mb-6" id="mineInfo">
+          <div className="px-4 py-5 sm:px-6">
+            <h3 className="text-lg leading-6 font-medium text-gray-900">Mine Information</h3>
+          </div>
+          <div className="border-t border-gray-200">
+            <dl>
+              {Object.entries(mineInfo).map(([key, value], index) => (
+                <div key={key} className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6`}>
+                  <dt className="text-sm font-medium text-gray-500">{key.charAt(0).toUpperCase() + key.slice(1)}</dt>
+                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
       )}
 
-      <div className="button-container">
-        <button type="button" id="goBack" onClick={handleGoBack}>
+      <div className="flex justify-between">
+        <button
+          type="button"
+          id="goBack"
+          onClick={handleGoBack}
+          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
           Go Back
         </button>
-        <button type="submit" id="calculate">
+        <button
+          type="submit"
+          id="calculate"
+          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+        >
           Calculate Carbon Emission
         </button>
       </div>
@@ -131,4 +138,4 @@ export const MineData = () => {
   );
 };
 
-// export default mineData;
+export default MineData;
