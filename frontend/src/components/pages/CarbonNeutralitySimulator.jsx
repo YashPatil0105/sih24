@@ -53,7 +53,7 @@ export const CarbonNeutralitySimulator = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://127.0.0.1:5000/calculate', {
+      const response = await fetch('http://127.0.0.1:5100/calculate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
