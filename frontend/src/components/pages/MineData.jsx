@@ -56,10 +56,10 @@ export const MineData = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
+    <div className="container mx-auto px-4 py-8 max-w-4xl min-h-screen m-36" >
       <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Select Coal Field and Mine</h1>
 
-      <div className="mb-6">
+      <div className="mb-6 ">
         <label htmlFor="coalField" className="block text-sm font-medium text-gray-700 mb-2">
           Select Coal Field:
         </label>
@@ -133,12 +133,20 @@ export const MineData = () => {
           className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
         >
        
+        <a href="./Estimation">
+        <button
+          type="submit"
+          id="calculate"
+          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+        >
+       
           Calculate Carbon Emission
         </button>
         </a>
+        
       </div>
     </div>
   );
 };
 
-{/* export default MineData; */}
+// export default MineData;

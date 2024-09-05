@@ -135,4 +135,4 @@ def calculate_renewable_strategy(renewable_data, emission, renewable_part):
     return results
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=5100)
